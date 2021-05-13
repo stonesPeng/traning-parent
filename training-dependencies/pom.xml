@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>training-dependencies</artifactId>
+    <groupId>me.stone.training.parent</groupId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <url/>
+    <licenses>
+        <license>
+            <name>Private</name>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>honorStone</name>
+            <email>honor_stone@163.com</email>
+            <organization>private</organization>
+            <organizationUrl>https://github.com/stonesPeng</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url/>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- config -->
+        <main.class>unknown</main.class>
+        <maven.deploy.skip>false</maven.deploy.skip>
+        <maven.main.skip>false</maven.main.skip>
+        <deployAtEnd>true</deployAtEnd>
+        <maven.source.skip>true</maven.source.skip>
+        <!-- plugins -->
+        <version.plugin.dokka>0.9.8</version.plugin.dokka>
+        <version.plugin.spotbugs>4.1.3</version.plugin.spotbugs>
+        <version.plugin.spotbug.spotbugs>4.1.4</version.plugin.spotbug.spotbugs>
+        <version.plugin.protobuf>0.6.1</version.plugin.protobuf>
+        <version.plugin.os>1.6.2</version.plugin.os>
+        <!-- plugins conf-->
+
+
+        <!-- mybatis -->
+        <version.mybatis-plus-boot-starter>3.2.0</version.mybatis-plus-boot-starter>
+        <version.mybatis-dynamic-sql>1.2.1</version.mybatis-dynamic-sql>
+        <version.mybatis-spring-boot-starter>2.1.0</version.mybatis-spring-boot-starter>
+        <version.pagehelper-starter>1.2.12</version.pagehelper-starter>
+        <!-- common -->
+        <version.apache.common-codec>1.12</version.apache.common-codec>
+        <version.apache.common-configuration2>2.3</version.apache.common-configuration2>
+        <!-- component -->
+        <version.distruptor>3.4.2</version.distruptor>
+        <!-- tools -->
+        <version.resilience4j>1.6.1</version.resilience4j>
+        <version.vavr>0.10.3</version.vavr>
+        <!-- jooq -->
+        <version.jooq>3.14.7</version.jooq>
+        <version.jool>0.9.14</version.jool>
+        <!-- guava -->
+        <version.guava>30.0-jre</version.guava>
+        <!-- eclipse collections : for big collections -->
+        <version.eclipse-collections>10.4.0</version.eclipse-collections>
+        <!-- jackson -->
+        <jackson-bom.version>2.11.3</jackson-bom.version>
+        <!-- swagger -->
+        <!--        <version.knife4j>2.0.4</version.knife4j>-->
+        <version.knife4j>3.0.1</version.knife4j>
+        <!--        <version.springfox>2.9.2</version.springfox>-->
+        <version.springfox>3.0.0</version.springfox>
+        <version.springfox.starter>3.0.0</version.springfox.starter>
+        <version.swagger-annotations>1.5.22</version.swagger-annotations>
+        <version.swagger-v3-annotations>2.1.5</version.swagger-v3-annotations>
+        <!-- annotations -->
+        <version.lombok>1.18.16</version.lombok>
+        <version.jetbrains-annotations>20.1.0</version.jetbrains-annotations>
+        <version.google-auto-service>1.0-rc7</version.google-auto-service>
+        <!-- spring boot -->
+        <spring-boot.version>2.3.8.RELEASE</spring-boot.version>
+        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
+        <version.spring-data-jdbc>2.1.1</version.spring-data-jdbc>
+        <!-- protobuf -->
+        <version.grpc>1.30.2</version.grpc>
+
+        <version.protoc>3.13.0</version.protoc>
+        <version.protostuff>1.7.2</version.protostuff>
+
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- bom -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq</artifactId>
+                <version>${version.jooq}</version>
+            </dependency>
+            <!-- protobuf -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${version.protoc}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-netty</artifactId>
+                <version>${version.grpc}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-protobuf</artifactId>
+                <version>${version.grpc}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-stub</artifactId>
+                <version>${version.grpc}</version>
+            </dependency>
+            <!-- protostuff -->
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-core</artifactId>
+                <version>${version.protostuff}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-runtime</artifactId>
+                <version>${version.protostuff}</version>
+            </dependency>
+            <!-- mybatis dynamic sql -->
+            <dependency>
+                <groupId>org.mybatis.dynamic-sql</groupId>
+                <artifactId>mybatis-dynamic-sql</artifactId>
+                <version>${version.mybatis-dynamic-sql}</version>
+            </dependency>
+            <!-- jool -->
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jool-java-8</artifactId>
+                <version>${version.jool}</version>
+            </dependency>
+            <!-- auto-service -->
+            <!-- https://mvnrepository.com/artifact/com.google.auto.service/auto-service -->
+            <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service-annotations</artifactId>
+                <version>${version.google-auto-service}</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service</artifactId>
+                <version>${version.google-auto-service}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <!-- guava -->
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${version.guava}</version>
+            </dependency>
+            <!-- eclipse collections -->
+            <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections-api -->
+            <dependency>
+                <groupId>org.eclipse.collections</groupId>
+                <artifactId>eclipse-collections-api</artifactId>
+                <version>${version.eclipse-collections}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.collections</groupId>
+                <artifactId>eclipse-collections</artifactId>
+                <version>${version.eclipse-collections}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.collections</groupId>
+                <artifactId>eclipse-collections-forkjoin</artifactId>
+                <version>${version.eclipse-collections}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.collections</groupId>
+                <artifactId>eclipse-collections-testutils</artifactId>
+                <version>${version.eclipse-collections}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- resilience4j -->
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-all</artifactId>
+                <version>${version.resilience4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-reactor</artifactId>
+                <version>${version.resilience4j}</version>
+            </dependency>
+            <!-- vavr -->
+            <dependency>
+                <groupId>io.vavr</groupId>
+                <artifactId>vavr</artifactId>
+                <version>${version.vavr}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vavr</groupId>
+                <artifactId>vavr-jackson</artifactId>
+                <version>${version.vavr}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vavr</groupId>
+                <artifactId>vavr-gson</artifactId>
+                <version>${version.vavr}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vavr</groupId>
+                <artifactId>vavr-render</artifactId>
+                <version>${version.vavr}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vavr</groupId>
+                <artifactId>vavr-beanvalidation2</artifactId>
+                <version>${version.vavr}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.vavr</groupId>
+                <artifactId>vavr-match-processor</artifactId>
+                <version>${version.vavr}</version>
+            </dependency>
+            <!-- spring data jdbc-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jdbc</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.data</groupId>
+                        <artifactId>spring-data-jdbc</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jdbc</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.data</groupId>
+                        <artifactId>spring-data-relational</artifactId>
+                    </exclusion>
+                </exclusions>
+                <version>${version.spring-data-jdbc}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-relational</artifactId>
+                <version>${version.spring-data-jdbc}</version>
+            </dependency>
+            <!-- annotations -->
+            <dependency>
+                <groupId>org.jetbrains</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${version.jetbrains-annotations}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${version.lombok}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- end -->
+        </dependencies>
+    </dependencyManagement>
+    <profiles>
+        <profile>
+            <id>trait-extract-xml-mapper-from-jars</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>3.1.2</version>
+                        <!--  to include mybatis mapper xml in the dependencies (we not use mapper xml, so comment out it) -->
+                        <executions>
+                            <execution>
+                                <id>unpack</id>
+                                <phase>prepare-package</phase><!-- for reactor this must after other process -->
+                                <goals>
+                                    <goal>unpack-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <includeGroupIds>${project.groupId}</includeGroupIds>
+                                    <excludeTransitive>true</excludeTransitive>
+                                    <outputDirectory>${project.build.outputDirectory}/</outputDirectory>
+                                    <excludes>org/**,META-INF/**,rebel.xml,*.yml</excludes>
+                                    <includes>**/*.xml</includes>
+                                    <overWriteIfNewer>true</overWriteIfNewer>
+                                    <overWriteReleases>true</overWriteReleases>
+                                    <overWriteSnapshots>true</overWriteSnapshots>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    <build>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>${version.plugin.os}</version>
+            </extension>
+        </extensions>
+        <pluginManagement>
+            <plugins>
+                <!-- protobuf -->
+                <plugin>
+                    <groupId>org.xolstice.maven.plugins</groupId>
+                    <artifactId>protobuf-maven-plugin</artifactId>
+                    <version>${version.plugin.protobuf}</version>
+                    <configuration>
+                        <protocArtifact>com.google.protobuf:protoc:${version.protoc}:exe:${os.detected.classifier}
+                        </protocArtifact>
+                        <pluginId>grpc-java</pluginId>
+                        <pluginArtifact>io.grpc:protoc-gen-grpc-java:${version.grpc}:exe:${os.detected.classifier}
+                        </pluginArtifact>
+
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>generate-protobuf</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>compile</goal>
+                                <goal>compile-custom</goal>
+                                <goal>test-compile</goal>
+                                <goal>test-compile-custom</goal>
+                            </goals>
+                        </execution>
+
+                    </executions>
+                </plugin>
+                <!-- spot bugs -->
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>${version.plugin.spotbugs}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.spotbugs</groupId>
+                            <artifactId>spotbugs</artifactId>
+                            <version>${version.plugin.spotbug.spotbugs}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <!-- java doc -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.2.0</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                        <charset>UTF-8</charset>
+                        <docencoding>UTF-8</docencoding>
+                        <additionalOptions>-Xdoclint:none</additionalOptions>
+                        <tags>
+                            <tag>
+                                <name>date</name>
+                                <placement>a</placement>
+                                <head>Create Date:</head>
+                            </tag>
+                            <tag>
+                                <name>apiNote</name>
+                                <placement>a</placement>
+                                <head>Api Comment:</head>
+                            </tag>
+                        </tags>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- dokka(kotlin) -->
+                <plugin>
+                    <groupId>org.jetbrains.dokka</groupId>
+                    <artifactId>dokka-maven-plugin</artifactId>
+                    <version>${version.plugin.dokka}</version>
+                </plugin>
+                <!-- dependency -->
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+                <!-- deploy -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <!-- assembly -->
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.2.0</version>
+                    <configuration>
+                        <finalName>deploy</finalName>
+                        <appendAssemblyId>false</appendAssemblyId>
+                        <descriptors>
+                            <descriptor>asm.xml</descriptor>
+                        </descriptors>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- jar -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <mainClass>${main.class}</mainClass>
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <classpathLayoutType>simple</classpathLayoutType>
+                                <useUniqueVersions>false</useUniqueVersions>
+                            </manifest>
+                        </archive>
+                        <finalName>${project.artifactId}</finalName>
+                    </configuration>
+                </plugin>
+                <!-- source -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                    <configuration>
+                        <attach>true</attach>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
