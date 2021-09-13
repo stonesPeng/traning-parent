@@ -81,7 +81,7 @@
         <version.jetbrains-annotations>20.1.0</version.jetbrains-annotations>
         <version.google-auto-service>1.0-rc7</version.google-auto-service>
         <!-- spring boot -->
-        <spring-boot.version>2.3.8.RELEASE</spring-boot.version>
+        <spring-boot.version>2.4.2</spring-boot.version>
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <version.spring-data-jdbc>2.1.1</version.spring-data-jdbc>
         <!-- protobuf -->
@@ -89,6 +89,9 @@
 
         <version.protoc>3.13.0</version.protoc>
         <version.protostuff>1.7.2</version.protostuff>
+
+        <version.spring-cloud>2020.0.1</version.spring-cloud>
+        <version.spring-cloud.alibaba>2021.1</version.spring-cloud.alibaba>
 
 
     </properties>
@@ -292,6 +295,20 @@
                 <artifactId>lombok</artifactId>
                 <version>${version.lombok}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${version.spring-cloud.alibaba}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${version.spring-cloud}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!-- end -->
         </dependencies>
